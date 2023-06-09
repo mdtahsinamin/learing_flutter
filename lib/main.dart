@@ -45,11 +45,11 @@ class HomeActivity extends StatelessWidget {
     // Sacffold -> Components widgets
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tahsin Amin"),
-        titleSpacing: 50,
+        title:  Text("Tahsin Amin"),
+        titleSpacing: 10,
         toolbarOpacity: 1,
         toolbarHeight: 70,
-        elevation: 50,
+        elevation: 0,
         backgroundColor: Colors.green,
         actions: [
           IconButton(
@@ -95,6 +95,56 @@ class HomeActivity extends StatelessWidget {
         },
       ),
       drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              padding: EdgeInsets.all(0),
+              child: UserAccountsDrawerHeader(
+                decoration: BoxDecoration(color: Colors.green),
+                accountName: Text("Tahsin Amin",style: TextStyle(color: Colors.black),),
+                accountEmail: Text("info@gmail.com"),
+                currentAccountPicture: Image.network(
+                  'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',
+                  width: 200,
+                  height: 100,
+                ),
+                onDetailsPressed: (){
+                  myCustomBar("Deails", context);
+                },
+
+
+              ),
+            ),
+            ListTile(
+                leading: Icon(Icons.home),
+                title: Text("Home"),
+                onTap: () {
+                  myCustomBar("Home", context);
+                }),
+            ListTile(
+              leading: Icon(Icons.contact_emergency),
+              title: Text("Contact"),
+              onTap: () {
+                myCustomBar("Home", context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.email),
+              title: Text("Address"),
+              onTap: () {
+                myCustomBar("Home", context);
+              },
+            ),
+            ListTile(
+                leading: Icon(Icons.phone),
+                title: Text("Phone"),
+                onTap: () {
+                  myCustomBar("Home", context);
+                })
+          ],
+        ),
+      ),
+      endDrawer: Drawer(
         child: ListView(
           children: [
             DrawerHeader(
